@@ -1,10 +1,5 @@
 import math
-# current state of the game
-game = [
-    ["1", "2", "3"],
-    ["4", "5", "6"],
-    ["7", "8", "9"]
-]
+
 
 # return current state of the game in the human readble format (STRING)
 def print_game(game):
@@ -38,4 +33,23 @@ def check_winner(game):
         return game [0][2]
     return None
 
-print (check_winner(game))
+def two_player_game():
+    # current state of the game
+    game = [
+    ["1", "2", "3"],
+    ["4", "5", "6"],
+    ["7", "8", "9"]]
+    turn = False # False = X  | True = O
+    for _ in range(9):
+        if check_winner(game) != None:
+            break
+        print(print_game(game))
+        inp = input(f"Select number you want to play ({"O" if turn else "X"}): ")
+        inp = int(inp)
+        game = change_game(game, inp, "O" if turn else "X")
+        turn = not turn
+    if check_winner(game) == None:
+        print("Tie game!")
+    else:
+        print(f"{check_winner(game)} win the game Nice!")
+two_player_game()
