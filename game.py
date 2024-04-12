@@ -21,3 +21,21 @@ def change_game(game, position, played):
     game[i][j]=played
     return game
 
+# check if the current game (given matrix) has winner then return the winner 
+def check_winner(game):
+    # check possible row wins
+    for i in game:
+        if i[0] == i[1] == i[2]:
+            return i[0]
+    # check possible column win
+    for i in range(3):
+        if game[0][i] == game[1][i] == game[2][i]:
+            return game[0][i]
+    # check possible diagonal win
+    if game[0][0] == game[1][1] == game[2][2]:
+        return game[0][0]
+    if game [0][2] == game [1][1] == game [2][0]:
+        return game [0][2]
+    return None
+
+print (check_winner(game))
