@@ -52,4 +52,3 @@ def two_player_game():
         print("Tie game!")
     else:
         print(f"{check_winner(game)} win the game Nice!")
-two_player_game()
